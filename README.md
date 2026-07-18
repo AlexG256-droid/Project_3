@@ -38,14 +38,22 @@ Users can register, log in, create travel plans, and search for possible places 
 **Terminal 1 (Server)**
 
 cd "/Users/alexgutting/Downloads/Project_3-main 3/server"
+
 npm install
+
 touch .env
+
 npm start
 
+
 **Terminal 2 (Client)**
+
 cd "/Users/alexgutting/Downloads/Project_3-main 3/client"
+
 npm install
+
 npm run dev
+
 
 
 ## Important Notes
