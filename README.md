@@ -36,6 +36,7 @@ Users can register, log in, create travel plans, and search for possible places 
 ## Setup
 
 **Terminal 1 (Server)**
+
 cd "/Users/alexgutting/Downloads/Project_3-main 3/server"
 npm install
 touch .env
