@@ -37,7 +37,7 @@ Users can register, log in, create travel plans, and search for possible places 
 
 **Terminal 1 (Server)**
 
-cd "Project_3"
+cd Project_3
 
 npm install
 
@@ -46,10 +46,9 @@ touch .env
 npm start
 
 
-
 **Terminal 2 (Client)**
 
-cd "Project_3"
+cd Project_3
 
 npm install
 
