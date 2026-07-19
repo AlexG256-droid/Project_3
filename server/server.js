@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const session = require('express-session');
 const passport = require('passport');
 const { MongoClient, ObjectId } = require('mongodb');
@@ -9,6 +10,17 @@ const authRouter = require('./routes/auth');
 
 const app = express();
 const port = process.env.PORT || 5000;
+const isProd = process.env.NODE_ENV === 'production';
+
+// in prod the frontend (vercel) and backend (render) are different domains,
+// so cors + cookies need to explicitly allow that
+app.set('trust proxy', 1);
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(
@@ -16,6 +28,10 @@ app.use(
     secret: process.env.SESSION_SECRET || 'dev secret',
     resave: false,
     saveUninitialized: false,
+    cookie: {
+      secure: isProd,
+      sameSite: isProd ? 'none' : 'lax',
+    },
   })
 );
 app.use(passport.initialize());

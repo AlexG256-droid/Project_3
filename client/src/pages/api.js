@@ -1,5 +1,7 @@
+import { API_BASE } from './apiBase.js';
+
 export async function request(url, options = {}) {
-  const res = await fetch(url, {
+  const res = await fetch(`${API_BASE}${url}`, {
     ...options,
     credentials: 'include',
     headers: {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { logout } from './api.js';
+import { API_BASE } from './apiBase.js';
 import './Home.css';
 
 function Home({ onLogout }) {
@@ -10,7 +11,7 @@ function Home({ onLogout }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/api/destinations')
+    fetch(`${API_BASE}/api/destinations`)
       .then((res) => res.json())
       .then((data) => setDestinations(data))
       .catch((err) => console.log('failed to load destinations', err));
