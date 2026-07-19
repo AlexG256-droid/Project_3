@@ -11,7 +11,7 @@ TravelWise is a vacation planner web app built with Node.js, Express, React, and
 
 ## YouTube Link
 
-Link to video: 
+Link to video: https://www.youtube.com/watch?v=5BRhwtfRxD8
 
 ## Slides Link
 
@@ -23,7 +23,7 @@ Users can register, log in, create travel plans, and search for possible places 
 
 ## Screenshot
 
-
+<img width="320" height="292" alt="TravelWise" src="https://github.com/user-attachments/assets/8eff307d-bb44-473a-878b-89f3be7c0bf0" />
 
 ## Tech Stack
 
