@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { API_BASE } from './apiBase.js';
 import { formatDateRange, validateDates } from './api.js';
+import Toast from '../components/Toast.jsx';
 import './AddTrip.css';
 
 function findMatch(destinations, value) {
@@ -21,6 +22,7 @@ function AddTrip() {
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
   const [errors, setErrors] = useState({});
+  const [showToast, setShowToast] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -86,10 +88,13 @@ function AddTrip() {
           image,
         }),
       });
+      // give the user a moment to see the confirmation before leaving the page
+      setShowToast(true);
+      setTimeout(() => navigate('/trips'), 1100);
     } catch (err) {
       console.log('failed to save trip', err);
+      navigate('/trips');
     }
-    navigate('/trips');
   }
 
   return (
@@ -155,6 +160,12 @@ function AddTrip() {
           </button>
         </div>
       </div>
+
+      <Toast
+        show={showToast}
+        message="Trip added successfully!"
+        onClose={() => setShowToast(false)}
+      />
     </div>
   );
 }

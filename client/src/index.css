@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 :root {
   --bg: #F3F6F9;
   --surface: #FFFFFF;
@@ -12,20 +10,18 @@
   --danger: #B23A48;
   --danger-light: #E8909A;
   --danger-bg: #F9EEF0;
+
+  --success: #2E7D5B;
+  --success-light: #8FCDB0;
+  --success-bg: #EAF7F1;
 }
 
->>>>>>> c887ff0 (Update)
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-<<<<<<< HEAD
-  font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background: #f4f8fb;
-  color: #222;
-=======
   font-family: Montserrat, sans-serif;
   background: var(--bg);
   color: var(--navy);
@@ -48,5 +44,4 @@ button {
   padding: 6px 10px;
   font-size: 12px;
   font-weight: 600;
->>>>>>> c887ff0 (Update)
 }

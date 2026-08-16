@@ -38,8 +38,6 @@ export async function login(username, password) {
 export async function logout() {
   await request('/api/auth/logout', { method: 'POST' });
 }
-<<<<<<< HEAD
-=======
 
 function toLabel(value) {
   const [year, month, day] = value.split('-');
@@ -56,6 +54,39 @@ export function formatDateRange(startDate, endDate) {
   return `${toLabel(startDate)} - ${toLabel(endDate)}`;
 }
 
+const SPECIAL_CHAR = /[!@#$%^&*(),.?":{}|<>_\-+=[\]\\/~`;']/;
+
+export function getPasswordChecks(password) {
+  return {
+    length: password.length >= 8,
+    uppercase: /[A-Z]/.test(password),
+    special: SPECIAL_CHAR.test(password),
+  };
+}
+
+export function validateSignup(username, password) {
+  const newErrors = {};
+  const trimmedUsername = username.trim();
+
+  // kept short so the message never wraps to a second line and grows the box
+  if (!trimmedUsername) {
+    newErrors.username = 'Username is required.';
+  } else if (/^\d+$/.test(trimmedUsername)) {
+    newErrors.username = 'Username cannot be a number.';
+  } else if (trimmedUsername.length < 3) {
+    newErrors.username = 'Username needs 3+ characters.';
+  }
+
+  const checks = getPasswordChecks(password);
+  if (!password) {
+    newErrors.password = 'Password is required.';
+  } else if (!checks.length || !checks.uppercase || !checks.special) {
+    newErrors.password = 'Password does not meet all requirements.';
+  }
+
+  return newErrors;
+}
+
 export function validateDates(startDate, endDate) {
   const newErrors = {};
   if (!startDate) {
@@ -70,4 +101,3 @@ export function validateDates(startDate, endDate) {
   }
   return newErrors;
 }
->>>>>>> c887ff0 (Update)

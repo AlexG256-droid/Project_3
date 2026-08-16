@@ -6,22 +6,14 @@
 }
 
 .plans-header {
-<<<<<<< HEAD
-  background: #5b9bd5;
-  color: white;
-=======
   background: var(--navy);
   color: #FFFFFF;
->>>>>>> c887ff0 (Update)
   padding: 22px;
   border-radius: 16px;
   font-weight: 600;
   font-size: 16px;
   letter-spacing: 1px;
-<<<<<<< HEAD
-=======
   margin-top: 0;
->>>>>>> c887ff0 (Update)
   margin-bottom: 32px;
 }
 
@@ -34,27 +26,15 @@
 
 .tab-btn {
   padding: 10px 18px;
-<<<<<<< HEAD
-  border: none;
-  border-radius: 20px;
-  background: #eef3f9;
-  color: #444;
-=======
   border: 1px solid var(--btn);
   border-radius: 20px;
   background: var(--bg);
   color: var(--btn);
->>>>>>> c887ff0 (Update)
   font-weight: 600;
   font-size: 13px;
   cursor: pointer;
 }
 
-<<<<<<< HEAD
-.tab-btn.active {
-  background: #5b9bd5;
-  color: white;
-=======
 .tab-btn:hover {
   background: #FFFFFF;
 }
@@ -62,7 +42,6 @@
 .tab-btn.active {
   background: var(--btn);
   color: #FFFFFF;
->>>>>>> c887ff0 (Update)
 }
 
 .plans-grid {
@@ -74,38 +53,23 @@
 
 .no-trips {
   grid-column: 1 / -1;
-<<<<<<< HEAD
-  color: #888;
-=======
   color: var(--sky);
->>>>>>> c887ff0 (Update)
 }
 
 .trip-card {
   text-align: left;
-<<<<<<< HEAD
-  background: white;
-  border-radius: 12px;
-  padding: 14px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-=======
   background: #FFFFFF;
   border-top: 4px solid var(--sky);
   border-radius: 12px;
   padding: 14px;
   box-shadow: 0 2px 10px rgba(35, 57, 91, 0.08);
->>>>>>> c887ff0 (Update)
 }
 
 .trip-thumb {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-<<<<<<< HEAD
-  background: #eef5fb;
-=======
   background: var(--bg);
->>>>>>> c887ff0 (Update)
   border-radius: 8px;
   margin-bottom: 10px;
 }
@@ -113,31 +77,17 @@
 .trip-name {
   font-weight: 600;
   font-size: 14px;
-<<<<<<< HEAD
-  color: #222;
-=======
   color: var(--navy);
->>>>>>> c887ff0 (Update)
 }
 
 .trip-dates {
   font-size: 12px;
-<<<<<<< HEAD
-  color: #888;
-=======
   color: var(--sky);
->>>>>>> c887ff0 (Update)
   margin: 2px 0 6px;
 }
 
 .trip-description {
   font-size: 12px;
-<<<<<<< HEAD
-  color: #666;
-  line-height: 1.4;
-}
-
-=======
   color: var(--navy);
   line-height: 1.4;
 }
@@ -191,7 +141,6 @@
   color: var(--sky);
 }
 
->>>>>>> c887ff0 (Update)
 .trip-card-actions {
   display: flex;
   flex-direction: column;
@@ -200,15 +149,9 @@
 }
 
 .move-btn,
-<<<<<<< HEAD
-.delete-btn {
-  padding: 8px 10px;
-  border: none;
-=======
 .edit-btn,
 .delete-btn {
   padding: 8px 10px;
->>>>>>> c887ff0 (Update)
   border-radius: 8px;
   font-size: 12px;
   font-weight: 600;
@@ -216,23 +159,6 @@
 }
 
 .move-btn {
-<<<<<<< HEAD
-  background: #eef5fb;
-  color: #4a84bd;
-}
-
-.move-btn:hover {
-  background: #dceaf7;
-}
-
-.delete-btn {
-  background: #fdecec;
-  color: #c0392b;
-}
-
-.delete-btn:hover {
-  background: #fbdcdc;
-=======
   border: none;
   background: var(--btn);
   color: #FFFFFF;
@@ -263,7 +189,6 @@
   background: var(--danger);
   border-color: var(--danger);
   color: #FFFFFF;
->>>>>>> c887ff0 (Update)
 }
 
 .add-card {
@@ -271,46 +196,28 @@
   align-items: center;
   justify-content: center;
   font-size: 32px;
-<<<<<<< HEAD
-  color: white;
-  background: #5b9bd5;
-=======
   color: var(--btn);
   background: #FFFFFF;
   border: 2px dashed var(--sky);
->>>>>>> c887ff0 (Update)
   border-radius: 12px;
   cursor: pointer;
 }
 
 .add-card:hover {
-<<<<<<< HEAD
-  background: #4a84bd;
-=======
   background: var(--bg);
   border-color: var(--btn);
->>>>>>> c887ff0 (Update)
 }
 
 .home-btn {
   padding: 12px 28px;
   border: none;
   border-radius: 24px;
-<<<<<<< HEAD
-  background: #5b9bd5;
-  color: white;
-=======
   background: var(--btn);
   color: #FFFFFF;
->>>>>>> c887ff0 (Update)
   font-weight: 600;
   cursor: pointer;
 }
 
 .home-btn:hover {
-<<<<<<< HEAD
-  background: #4a84bd;
-=======
   background: var(--navy);
->>>>>>> c887ff0 (Update)
 }

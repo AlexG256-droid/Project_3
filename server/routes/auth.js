@@ -4,6 +4,8 @@ const bcrypt = require('bcrypt');
 
 const router = express.Router();
 
+const SPECIAL_CHAR = /[!@#$%^&*(),.?":{}|<>_\-+=[\]\\/~`;']/;
+
 const publicUser = (user) => ({
   id: user._id.toString(),
   username: user.username,
@@ -19,8 +21,24 @@ router.post('/register', async (req, res, next) => {
       return res.status(400).json({ message: 'Username and password are required.' });
     }
 
-    if (password.length < 4) {
-      return res.status(400).json({ message: 'Password must be at least 4 characters.' });
+    if (/^\d+$/.test(username)) {
+      return res.status(400).json({ message: 'Username cannot be a number.' });
+    }
+
+    if (username.length < 3) {
+      return res.status(400).json({ message: 'Username needs 3+ characters.' });
+    }
+
+    if (password.length < 8) {
+      return res.status(400).json({ message: 'Password needs 8+ characters.' });
+    }
+
+    if (!/[A-Z]/.test(password)) {
+      return res.status(400).json({ message: 'Add an uppercase letter.' });
+    }
+
+    if (!SPECIAL_CHAR.test(password)) {
+      return res.status(400).json({ message: 'Add a special character.' });
     }
 
     const db = req.app.locals.db;

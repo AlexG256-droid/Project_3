@@ -1,19 +1,39 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { login, register, logout } from './api.js';
+import { login, register, logout, validateSignup, getPasswordChecks } from './api.js';
 import './Login.css';
+
+const PASSWORD_RULES = [
+  { key: 'length', label: 'At least 8 characters' },
+  { key: 'uppercase', label: 'One uppercase letter' },
+  { key: 'special', label: 'One special character' },
+];
 
 function Login({ onAuth }) {
   const [isRegister, setIsRegister] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [fieldErrors, setFieldErrors] = useState({});
   const navigate = useNavigate();
+
+  function toggleMode() {
+    setIsRegister(!isRegister);
+    setError('');
+    setFieldErrors({});
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
     setError('');
+
+    if (isRegister) {
+      const newErrors = validateSignup(username, password);
+      setFieldErrors(newErrors);
+      if (Object.keys(newErrors).length > 0) return;
+    }
+
     try {
       const user = isRegister
         ? await register(username, password)
@@ -24,6 +44,9 @@ function Login({ onAuth }) {
       setError(err.message);
     }
   }
+
+  const message = fieldErrors.username || fieldErrors.password || error;
+  const passwordChecks = getPasswordChecks(password);
 
   return (
     <div className="login-page">
@@ -36,7 +59,10 @@ function Login({ onAuth }) {
             className="username-bar"
             placeholder="Username"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => {
+              setUsername(e.target.value);
+              if (fieldErrors.username) setFieldErrors({ ...fieldErrors, username: undefined });
+            }}
             required
           />
           <input
@@ -44,11 +70,34 @@ function Login({ onAuth }) {
             type="password"
             placeholder="Password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              if (fieldErrors.password) setFieldErrors({ ...fieldErrors, password: undefined });
+            }}
             required
           />
 
-          {error && <p className="login-error">{error}</p>}
+          {isRegister && (
+            <ul className="password-requirements">
+              {PASSWORD_RULES.map((rule) => (
+                <li
+                  key={rule.key}
+                  className={passwordChecks[rule.key] ? 'met' : ''}
+                >
+                  <span className="requirement-icon">
+                    {passwordChecks[rule.key] ? '✓' : '•'}
+                  </span>
+                  {rule.label}
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {/* one fixed-height slot for whichever message applies, so the box
+              never grows or shrinks as errors come and go */}
+          <p className="login-error" style={{ visibility: message ? 'visible' : 'hidden' }}>
+            {message || ' '}
+          </p>
 
           <button className="login-btn" type="submit">
             {isRegister ? 'SIGN UP' : 'LOG IN'}
@@ -57,7 +106,7 @@ function Login({ onAuth }) {
 
         <p className="login-toggle">
           {isRegister ? 'Already have an account?' : "Don't have an account?"}{' '}
-          <button type="button" onClick={() => { setIsRegister(!isRegister); setError(''); }}>
+          <button type="button" onClick={toggleMode}>
             {isRegister ? 'Log in' : 'Sign up'}
           </button>
         </p>

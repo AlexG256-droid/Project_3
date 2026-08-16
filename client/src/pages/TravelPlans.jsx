@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { API_BASE } from './apiBase.js';
-<<<<<<< HEAD
-=======
 import { formatDateRange, validateDates } from './api.js';
->>>>>>> c887ff0 (Update)
+import Toast from '../components/Toast.jsx';
+import ConfirmDialog from '../components/ConfirmDialog.jsx';
 import './TravelPlans.css';
 
 const TABS = [
@@ -13,11 +12,6 @@ const TABS = [
   { key: 'past', label: 'Past Trips' },
 ];
 
-<<<<<<< HEAD
-function TravelPlans() {
-  const [trips, setTrips] = useState([]);
-  const [activeTab, setActiveTab] = useState('upcoming');
-=======
 const DATE_FIELDS = ['startDate', 'endDate'];
 
 const EMPTY_EDIT = {
@@ -41,7 +35,9 @@ function TravelPlans() {
   const [editingId, setEditingId] = useState(null);
   const [editForm, setEditForm] = useState(EMPTY_EDIT);
   const [editErrors, setEditErrors] = useState({});
->>>>>>> c887ff0 (Update)
+  const [toastMessage, setToastMessage] = useState('');
+  const [deleteTargetId, setDeleteTargetId] = useState(null);
+  const [moveTarget, setMoveTarget] = useState(null);
   const navigate = useNavigate();
 
   function loadTrips() {
@@ -53,13 +49,10 @@ function TravelPlans() {
 
   useEffect(() => {
     loadTrips();
-<<<<<<< HEAD
-=======
     fetch(`${API_BASE}/api/destinations`)
       .then((res) => res.json())
       .then((data) => setDestinations(data))
       .catch((err) => console.log('failed to load destinations', err));
->>>>>>> c887ff0 (Update)
   }, []);
 
   function moveToOngoing(id) {
@@ -71,6 +64,7 @@ function TravelPlans() {
       .then(() => {
         loadTrips();
         setActiveTab('ongoing');
+        setToastMessage('Trip moved to Currently Traveling!');
       })
       .catch((err) => console.log('failed to update trip', err));
   }
@@ -84,8 +78,16 @@ function TravelPlans() {
       .then(() => {
         loadTrips();
         setActiveTab('past');
+        setToastMessage('Trip moved to Past Trips!');
       })
       .catch((err) => console.log('failed to update trip', err));
+  }
+
+  function confirmMove() {
+    if (!moveTarget) return;
+    if (moveTarget.status === 'ongoing') moveToOngoing(moveTarget.id);
+    else moveToPast(moveTarget.id);
+    setMoveTarget(null);
   }
 
   function deleteTrip(id) {
@@ -94,8 +96,11 @@ function TravelPlans() {
       .catch((err) => console.log('failed to delete trip', err));
   }
 
-<<<<<<< HEAD
-=======
+  function confirmDelete() {
+    deleteTrip(deleteTargetId);
+    setDeleteTargetId(null);
+  }
+
   function startEdit(trip) {
     setEditingId(trip._id);
     setEditErrors({});
@@ -174,11 +179,11 @@ function TravelPlans() {
       .then(() => {
         loadTrips();
         cancelEdit();
+        setToastMessage('Trip updated successfully!');
       })
       .catch((err) => console.log('failed to update trip', err));
   }
 
->>>>>>> c887ff0 (Update)
   const visibleTrips = trips.filter((trip) => {
     const status = trip.status || 'upcoming';
     return status === activeTab;
@@ -186,11 +191,7 @@ function TravelPlans() {
 
   return (
     <div className="plans-page">
-<<<<<<< HEAD
-      <div className="plans-header">MY TRAVEL PLANS</div>
-=======
       <h1 className="plans-header">MY TRAVEL PLANS</h1>
->>>>>>> c887ff0 (Update)
 
       <div className="tab-row">
         {TABS.map((tab) => (
@@ -205,39 +206,6 @@ function TravelPlans() {
       </div>
 
       <div className="plans-grid">
-<<<<<<< HEAD
-        {visibleTrips.map((trip) => (
-          <div className="trip-card" key={trip._id}>
-            {trip.image ? (
-              <img className="trip-thumb" src={trip.image} alt={trip.name} />
-            ) : (
-              <div className="trip-thumb" />
-            )}
-            <div className="trip-name">{trip.name}</div>
-            <div className="trip-dates">{trip.dates}</div>
-            <div className="trip-description">{trip.description}</div>
-
-            <div className="trip-card-actions">
-              {(trip.status || 'upcoming') === 'upcoming' && (
-                <button
-                  className="move-btn"
-                  onClick={() => moveToOngoing(trip._id)}
-                >
-                  Move to Currently Traveling
-                </button>
-              )}
-              {trip.status === 'ongoing' && (
-                <button className="move-btn" onClick={() => moveToPast(trip._id)}>
-                  Move to Past Travel Experience
-                </button>
-              )}
-              <button className="delete-btn" onClick={() => deleteTrip(trip._id)}>
-                Delete
-              </button>
-            </div>
-          </div>
-        ))}
-=======
         {visibleTrips.map((trip) => {
           const isEditing = editingId === trip._id;
           const thumb = isEditing ? editForm.image : trip.image;
@@ -334,7 +302,9 @@ function TravelPlans() {
                     {(trip.status || 'upcoming') === 'upcoming' && (
                       <button
                         className="move-btn"
-                        onClick={() => moveToOngoing(trip._id)}
+                        onClick={() =>
+                          setMoveTarget({ id: trip._id, status: 'ongoing' })
+                        }
                       >
                         Move to Currently Traveling
                       </button>
@@ -342,7 +312,9 @@ function TravelPlans() {
                     {trip.status === 'ongoing' && (
                       <button
                         className="move-btn"
-                        onClick={() => moveToPast(trip._id)}
+                        onClick={() =>
+                          setMoveTarget({ id: trip._id, status: 'past' })
+                        }
                       >
                         Move to Past Travel Experience
                       </button>
@@ -352,7 +324,7 @@ function TravelPlans() {
                     </button>
                     <button
                       className="delete-btn"
-                      onClick={() => deleteTrip(trip._id)}
+                      onClick={() => setDeleteTargetId(trip._id)}
                     >
                       Delete
                     </button>
@@ -362,7 +334,6 @@ function TravelPlans() {
             </div>
           );
         })}
->>>>>>> c887ff0 (Update)
 
         {activeTab === 'upcoming' && (
           <div className="trip-card add-card" onClick={() => navigate('/trips/new')}>
@@ -378,6 +349,40 @@ function TravelPlans() {
       <button className="home-btn" onClick={() => navigate('/')}>
         HOME
       </button>
+
+      <Toast
+        show={!!toastMessage}
+        message={toastMessage}
+        onClose={() => setToastMessage('')}
+      />
+
+      <ConfirmDialog
+        show={deleteTargetId !== null}
+        title="Delete this trip?"
+        message="Are you sure you want to delete this travel plan? This can't be undone."
+        confirmLabel="Delete"
+        tone="danger"
+        onConfirm={confirmDelete}
+        onCancel={() => setDeleteTargetId(null)}
+      />
+
+      <ConfirmDialog
+        show={moveTarget !== null}
+        title={
+          moveTarget?.status === 'ongoing'
+            ? 'Move to Currently Traveling?'
+            : 'Move to Past Trips?'
+        }
+        message={
+          moveTarget?.status === 'ongoing'
+            ? 'Are you sure you want to move this trip to Currently Traveling?'
+            : 'Are you sure you want to move this trip to Past Trips?'
+        }
+        confirmLabel="Move"
+        tone="primary"
+        onConfirm={confirmMove}
+        onCancel={() => setMoveTarget(null)}
+      />
     </div>
   );
 }

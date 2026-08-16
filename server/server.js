@@ -9,11 +9,8 @@ const configurePassport = require('./config/passport');
 const authRouter = require('./routes/auth');
 
 const app = express();
-<<<<<<< HEAD
-=======
 // if this fails locally with EADDRINUSE, macOS is using 5000 for AirPlay
 // Receiver. either turn that off or set PORT in .env (and match it in vite.config.js)
->>>>>>> c887ff0 (Update)
 const port = process.env.PORT || 5000;
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -72,11 +69,8 @@ app.post('/api/trips', (req, res) => {
   const trip = {
     name: req.body.name,
     dates: req.body.dates,
-<<<<<<< HEAD
-=======
     startDate: req.body.startDate || '',
     endDate: req.body.endDate || '',
->>>>>>> c887ff0 (Update)
     description: req.body.description,
     image: req.body.image || '',
     status: req.body.status || 'upcoming',
@@ -94,11 +88,8 @@ app.put('/api/trips/:id', (req, res) => {
   const update = {};
   if (req.body.name !== undefined) update.name = req.body.name;
   if (req.body.dates !== undefined) update.dates = req.body.dates;
-<<<<<<< HEAD
-=======
   if (req.body.startDate !== undefined) update.startDate = req.body.startDate;
   if (req.body.endDate !== undefined) update.endDate = req.body.endDate;
->>>>>>> c887ff0 (Update)
   if (req.body.description !== undefined) update.description = req.body.description;
   if (req.body.image !== undefined) update.image = req.body.image;
   if (req.body.status !== undefined) update.status = req.body.status;

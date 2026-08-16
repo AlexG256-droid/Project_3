@@ -5,12 +5,6 @@
   text-align: center;
 }
 
-<<<<<<< HEAD
-.home-title {
-  letter-spacing: 2px;
-  margin-bottom: 4px;
-  color: #4a84bd;
-=======
 .home-topbar {
   display: flex;
   justify-content: flex-end;
@@ -22,16 +16,11 @@
   letter-spacing: 2px;
   margin-bottom: 4px;
   color: var(--navy);
->>>>>>> c887ff0 (Update)
   font-size: 32px;
 }
 
 .home-subtitle {
-<<<<<<< HEAD
-  color: #666;
-=======
   color: var(--sky);
->>>>>>> c887ff0 (Update)
   margin-top: 0;
   margin-bottom: 28px;
   font-size: 15px;
@@ -47,60 +36,37 @@
 .home-search input {
   width: 340px;
   padding: 12px 16px;
-<<<<<<< HEAD
-  border: 1px solid #d7e3ee;
-  border-radius: 24px;
-  background: #f0f6fb;
-=======
   border: 1px solid var(--sky);
   border-radius: 24px;
   background: #FFFFFF;
   color: var(--navy);
->>>>>>> c887ff0 (Update)
   font-size: 14px;
   outline: none;
 }
 
 .home-search input:focus {
-<<<<<<< HEAD
-  border-color: #5b9bd5;
-=======
   border-color: var(--btn);
->>>>>>> c887ff0 (Update)
 }
 
 .home-search button {
   padding: 12px 24px;
   border: none;
   border-radius: 24px;
-<<<<<<< HEAD
-  background: #5b9bd5;
-  color: white;
-=======
   background: var(--btn);
   color: #FFFFFF;
->>>>>>> c887ff0 (Update)
   font-weight: 600;
   cursor: pointer;
 }
 
 .home-search button:hover {
-<<<<<<< HEAD
-  background: #4a84bd;
-=======
   background: var(--navy);
->>>>>>> c887ff0 (Update)
 }
 
 .home-section-title {
   text-align: left;
   margin-bottom: 18px;
   font-size: 18px;
-<<<<<<< HEAD
-  color: #222;
-=======
   color: var(--navy);
->>>>>>> c887ff0 (Update)
 }
 
 .destination-grid {
@@ -112,115 +78,65 @@
 
 .destination-card {
   text-align: left;
-<<<<<<< HEAD
-=======
   background: #FFFFFF;
   border-radius: 12px;
   padding: 12px;
   box-shadow: 0 2px 10px rgba(35, 57, 91, 0.08);
->>>>>>> c887ff0 (Update)
 }
 
 .destination-thumb {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-<<<<<<< HEAD
-  background: #eef5fb;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-=======
   background: var(--bg);
   border-radius: 10px;
   margin-bottom: 10px;
->>>>>>> c887ff0 (Update)
 }
 
 .no-results {
   grid-column: 1 / -1;
-<<<<<<< HEAD
-  color: #777;
-=======
   color: var(--sky);
->>>>>>> c887ff0 (Update)
 }
 
 .destination-name {
   font-weight: 600;
   font-size: 14px;
-<<<<<<< HEAD
-  color: #222;
-=======
   color: var(--navy);
->>>>>>> c887ff0 (Update)
 }
 
 .destination-location {
   font-size: 12px;
-<<<<<<< HEAD
-  color: #888;
-=======
   color: var(--sky);
->>>>>>> c887ff0 (Update)
   margin-bottom: 10px;
 }
 
 .add-to-plan-btn {
   padding: 8px 14px;
-<<<<<<< HEAD
-  border: none;
-  border-radius: 16px;
-  background: #eef5fb;
-  color: #4a84bd;
-=======
   border: 1px solid var(--btn);
   border-radius: 16px;
   background: var(--bg);
   color: var(--btn);
->>>>>>> c887ff0 (Update)
   font-weight: 600;
   font-size: 12px;
   cursor: pointer;
 }
 
 .add-to-plan-btn:hover {
-<<<<<<< HEAD
-  background: #dceaf7;
-=======
   background: var(--btn);
   color: #FFFFFF;
->>>>>>> c887ff0 (Update)
 }
 
 .my-trips-btn {
   padding: 12px 28px;
   border: none;
   border-radius: 24px;
-<<<<<<< HEAD
-  background: #5b9bd5;
-  color: white;
-=======
   background: var(--btn);
   color: #FFFFFF;
->>>>>>> c887ff0 (Update)
   font-weight: 600;
   cursor: pointer;
 }
 
 .my-trips-btn:hover {
-<<<<<<< HEAD
-  background: #4a84bd;
-}
-
-.logout-btn {
-  margin-left: 12px;
-  padding: 12px 28px;
-  border: 1px solid #5b9bd5;
-  border-radius: 24px;
-  background: white;
-  color: #4a84bd;
-=======
   background: var(--navy);
 }
 
@@ -231,16 +147,11 @@
   border-radius: 24px;
   background: #FFFFFF;
   color: var(--btn);
->>>>>>> c887ff0 (Update)
   font-weight: 600;
   cursor: pointer;
 }
 
 .logout-btn:hover {
-<<<<<<< HEAD
-  background: #eef5fb;
-=======
   background: var(--btn);
   color: #FFFFFF;
->>>>>>> c887ff0 (Update)
 }
