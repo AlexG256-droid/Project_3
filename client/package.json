@@ -6,10 +6,7 @@
     "build": "vite build"
   },
   "dependencies": {
-<<<<<<< HEAD
-=======
     "@fontsource/montserrat": "^5.3.0",
->>>>>>> c887ff0 (Update)
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.0"
