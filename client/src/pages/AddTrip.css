@@ -1,20 +1,35 @@
 .add-trip-page {
   max-width: 460px;
   margin: 60px auto;
+<<<<<<< HEAD
   background: white;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+=======
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(35, 57, 91, 0.12);
+>>>>>>> c887ff0 (Update)
   overflow: hidden;
   text-align: center;
 }
 
 .add-trip-header {
+<<<<<<< HEAD
   background: #5b9bd5;
   color: white;
+=======
+  background: var(--navy);
+  color: #FFFFFF;
+>>>>>>> c887ff0 (Update)
   padding: 22px;
   font-weight: 600;
   font-size: 16px;
   letter-spacing: 1px;
+<<<<<<< HEAD
+=======
+  margin: 0;
+>>>>>>> c887ff0 (Update)
 }
 
 .add-trip-form {
@@ -31,23 +46,52 @@
   text-align: left;
   font-size: 13px;
   font-weight: 600;
+<<<<<<< HEAD
   color: #555;
+=======
+  color: var(--navy);
+}
+
+.date-row {
+  display: flex;
+  gap: 12px;
+}
+
+.date-row label {
+  flex: 1;
+  min-width: 0;
+>>>>>>> c887ff0 (Update)
 }
 
 .add-trip-form input,
 .add-trip-form textarea {
+<<<<<<< HEAD
   padding: 12px 14px;
   border: 1px solid #d7e3ee;
   border-radius: 8px;
   background: #f0f6fb;
   font-family: inherit;
+=======
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid var(--sky);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--navy);
+>>>>>>> c887ff0 (Update)
   font-size: 14px;
   outline: none;
 }
 
 .add-trip-form input:focus,
 .add-trip-form textarea:focus {
+<<<<<<< HEAD
   border-color: #5b9bd5;
+=======
+  border-color: var(--btn);
+  background: #FFFFFF;
+>>>>>>> c887ff0 (Update)
 }
 
 .add-trip-form textarea {
@@ -55,12 +99,15 @@
   resize: vertical;
 }
 
+<<<<<<< HEAD
 .field-error {
   color: #c0392b;
   font-size: 12px;
   font-weight: 500;
 }
 
+=======
+>>>>>>> c887ff0 (Update)
 .name-match-preview {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -78,16 +125,26 @@
 
 .add-trip-buttons button {
   padding: 12px 28px;
+<<<<<<< HEAD
   border: none;
   border-radius: 24px;
   font-size: 14px;
   font-weight: 600;
   background: #eef3f9;
   color: #444;
+=======
+  border: 1px solid var(--btn);
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--bg);
+  color: var(--btn);
+>>>>>>> c887ff0 (Update)
   cursor: pointer;
 }
 
 .add-trip-buttons button:hover {
+<<<<<<< HEAD
   background: #dee9f4;
 }
 
@@ -98,4 +155,19 @@
 
 .add-trip-buttons button:last-child:hover {
   background: #4a84bd;
+=======
+  background: var(--btn);
+  color: #FFFFFF;
+}
+
+.add-trip-buttons button:last-child {
+  background: var(--btn);
+  border-color: var(--btn);
+  color: #FFFFFF;
+}
+
+.add-trip-buttons button:last-child:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+>>>>>>> c887ff0 (Update)
 }

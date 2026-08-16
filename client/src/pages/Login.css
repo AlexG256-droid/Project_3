@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+<<<<<<< HEAD
   background-color: #f5f5f5;
 }
 
@@ -30,12 +31,52 @@
   border: 3px solid #1e1e1e;
   border-radius: 5px;
   color: #1e1e1e;
+=======
+  background-color: var(--bg);
+}
+
+.text-container {
+  padding: 32px;
+  min-width: 320px;
+  background-color: var(--navy);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(35, 57, 91, 0.18);
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.username-bar,
+.password-bar {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--sky);
+  border-radius: 5px;
+  background-color: var(--bg);
+  color: var(--navy);
+  font-size: 14px;
+  outline: none;
+}
+
+.username-bar {
+  margin-bottom: 10px;
+}
+
+.password-bar {
+  margin-bottom: 20px;
+}
+
+.username-bar:focus,
+.password-bar:focus {
+  border-color: var(--btn);
+  background-color: #FFFFFF;
+>>>>>>> c887ff0 (Update)
 }
 
 .login-btn {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
+<<<<<<< HEAD
   background-color: #1e1e1e;
   color: #ffffff;
   border: none;
@@ -50,6 +91,36 @@
 
 .login-error {
   color: #ff6b6b;
+=======
+  background-color: var(--btn);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background-color: var(--sky);
+  color: var(--navy);
+}
+
+.logo-txt {
+  font-size: 2rem;
+  font-weight: bold;
+  height: auto;
+  margin-bottom: 20px;
+  color: var(--sky);
+}
+
+.login-error {
+  color: var(--danger-light);
+  border-left: 3px solid var(--danger-light);
+  padding: 6px 0 6px 10px;
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 600;
+>>>>>>> c887ff0 (Update)
   margin-bottom: 10px;
 }
 
@@ -61,7 +132,11 @@
 .login-toggle button {
   background: none;
   border: none;
+<<<<<<< HEAD
   color: #4dabf7;
+=======
+  color: var(--sky);
+>>>>>>> c887ff0 (Update)
   cursor: pointer;
   text-decoration: underline;
   padding: 0;
@@ -74,9 +149,17 @@
 
 .profile-label {
   font-size: 0.8rem;
+<<<<<<< HEAD
   color: #aaaaaa;
+=======
+  color: var(--sky);
+>>>>>>> c887ff0 (Update)
 }
 
 .profile-value {
   font-size: 1.1rem;
+<<<<<<< HEAD
+=======
+  color: #FFFFFF;
+>>>>>>> c887ff0 (Update)
 }
