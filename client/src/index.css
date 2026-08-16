@@ -27,15 +27,12 @@ body {
   color: var(--navy);
 }
 
-/* form controls don't inherit the page font on their own, so every stylesheet
-   used to repeat the font-family. this sets it once for all of them */
 input,
 textarea,
 button {
   font-family: inherit;
 }
 
-/* shared by the add trip form and the edit form on the trips page */
 .field-error {
   color: var(--danger);
   background: var(--danger-bg);
