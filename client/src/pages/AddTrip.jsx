@@ -16,7 +16,6 @@ function AddTrip() {
 
   const [destinations, setDestinations] = useState([]);
   const [name, setName] = useState(initialName);
-  const [dates, setDates] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [description, setDescription] = useState('');
@@ -66,8 +65,6 @@ function AddTrip() {
     } else if (/^\d+$/.test(trimmedName)) {
       newErrors.name = 'Trip name cannot be just a number.';
     }
-    if (!dates.trim()) newErrors.dates = 'Dates are required.';
-    return newErrors;
     return { ...newErrors, ...validateDates(startDate, endDate) };
   }
 
@@ -80,7 +77,6 @@ function AddTrip() {
       await fetch(`${API_BASE}/api/trips`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, dates, description, image }),
         body: JSON.stringify({
           name,
           startDate,
@@ -98,7 +94,6 @@ function AddTrip() {
 
   return (
     <div className="add-trip-page">
-      <div className="add-trip-header">MY TRAVEL PLANS</div>
       <h1 className="add-trip-header">MY TRAVEL PLANS</h1>
 
       <div className="add-trip-form">
@@ -116,11 +111,6 @@ function AddTrip() {
           <img className="name-match-preview" src={image} alt="preview" />
         )}
 
-        <label>
-          Dates (to and from)
-          <input value={dates} onChange={(e) => setDates(e.target.value)} />
-          {errors.dates && <span className="field-error">{errors.dates}</span>}
-        </label>
         <div className="date-row">
           <label>
             Arrival date
