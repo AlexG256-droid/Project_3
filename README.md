@@ -64,12 +64,6 @@ npm run dev
 
 ## Use of AI
 
-<<<<<<< HEAD
-We used Claude AI and ChatGPT to revise already written code, primarily for the .jsx files. Alex used Claude AI (Opus 4.8) for assistance on the passport.js and authentication. The specific prompts that Alex used was "How do I edit Login.jsx so that the user can successfully log in or create an account?", "Does it provide user authentication using Passport.js?", and "Does it include frontend integration with authentication APIs?".
-=======
-We used Claude AI and ChatGPT to revise already written code, primarily for the .jsx files.
-
-Alex used Claude AI (Opus 4.8) for assistance on the passport.js and authentication as well as accessibility and usability for the application. The specific prompts that Alex used were "How do I edit Login.jsx so that the user can successfully log in or create an account?", "Does it provide user authentication using Passport.js?", "Does it include frontend integration with authentication APIs?", and "How can I improve the editing feature used for each travel card where the user can successfully edit any details in that travel card?", and "How can I optimize the calendar option for the start/end dates feature in a travel plan?".
->>>>>>> c887ff0 (Update)
+Alex used Claude AI (Opus 4.8) for assistance on the passport.js and authentication as well as accessibility and usability for the application. The specific prompts that Alex used were "How do I edit Login.jsx so that the user can successfully log in or create an account?", "Does it provide user authentication using Passport.js?", "Does it include frontend integration with authentication APIs?", "How can I improve the editing feature used for each travel card where the user can successfully edit any details in that travel card?", and "How can I optimize the calendar option for the start/end dates feature in a travel plan?".
 
 Victor used Claude AI throughout the project as well. It started as a simple starting template for the frontend pages (Home, Travel Plans, Add Trip), based on early mockups. From there, Claude was mainly used to help debug backend issues, such as a MongoDB connection timing bug and a merge conflict that had accidentally dropped the authentication wiring from server.js. Claude was also used to write a script that automatically pulls destination images from Wikipedia's API to seed the database, instead of manually sourcing images one by one.
