@@ -38,8 +38,6 @@ export async function login(username, password) {
 export async function logout() {
   await request('/api/auth/logout', { method: 'POST' });
 }
-<<<<<<< HEAD
-=======
 
 function toLabel(value) {
   const [year, month, day] = value.split('-');
@@ -70,4 +68,3 @@ export function validateDates(startDate, endDate) {
   }
   return newErrors;
 }
->>>>>>> c887ff0 (Update)
