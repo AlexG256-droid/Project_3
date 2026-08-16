@@ -44,6 +44,15 @@ function Home({ onLogout }) {
 
   return (
     <div className="home-page">
+<<<<<<< HEAD
+=======
+      <div className="home-topbar">
+        <button className="logout-btn" onClick={signOut}>
+          SIGN OUT
+        </button>
+      </div>
+
+>>>>>>> c887ff0 (Update)
       <h1 className="home-title">TRAVELWISE</h1>
       <p className="home-subtitle">Where would you like to go?</p>
 
@@ -83,10 +92,13 @@ function Home({ onLogout }) {
       <button className="my-trips-btn" onClick={() => navigate('/trips')}>
         MY TRAVEL PLANS
       </button>
+<<<<<<< HEAD
 
       <button className="logout-btn" onClick={signOut}>
         SIGN OUT
       </button>
+=======
+>>>>>>> c887ff0 (Update)
     </div>
   );
 }

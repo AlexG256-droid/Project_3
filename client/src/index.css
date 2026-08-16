@@ -1,10 +1,52 @@
+<<<<<<< HEAD
+=======
+:root {
+  --bg: #F3F6F9;
+  --surface: #FFFFFF;
+
+  --btn: #566783;
+
+  --navy: #23395B;
+  --sky: #67B7D1;
+
+  --danger: #B23A48;
+  --danger-light: #E8909A;
+  --danger-bg: #F9EEF0;
+}
+
+>>>>>>> c887ff0 (Update)
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
+<<<<<<< HEAD
   font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background: #f4f8fb;
   color: #222;
+=======
+  font-family: Montserrat, sans-serif;
+  background: var(--bg);
+  color: var(--navy);
+}
+
+/* form controls don't inherit the page font on their own, so every stylesheet
+   used to repeat the font-family. this sets it once for all of them */
+input,
+textarea,
+button {
+  font-family: inherit;
+}
+
+/* shared by the add trip form and the edit form on the trips page */
+.field-error {
+  color: var(--danger);
+  background: var(--danger-bg);
+  border-left: 3px solid var(--danger);
+  border-radius: 0 4px 4px 0;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+>>>>>>> c887ff0 (Update)
 }
