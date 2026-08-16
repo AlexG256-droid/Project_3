@@ -5,6 +5,29 @@
   text-align: center;
 }
 
+.plans-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.logout-btn {
+  padding: 10px 22px;
+  font-size: 13px;
+  border: 1px solid var(--btn);
+  border-radius: 24px;
+  background: #FFFFFF;
+  color: var(--btn);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: var(--btn);
+  color: #FFFFFF;
+}
+
 .plans-header {
   background: var(--navy);
   color: #FFFFFF;
@@ -209,15 +232,17 @@
 }
 
 .home-btn {
-  padding: 12px 28px;
-  border: none;
+  padding: 10px 22px;
+  font-size: 13px;
+  border: 1px solid var(--btn);
   border-radius: 24px;
-  background: var(--btn);
-  color: #FFFFFF;
+  background: #FFFFFF;
+  color: var(--btn);
   font-weight: 600;
   cursor: pointer;
 }
 
 .home-btn:hover {
-  background: var(--navy);
+  background: var(--btn);
+  color: #FFFFFF;
 }

@@ -45,6 +45,9 @@ function Home({ onLogout }) {
   return (
     <div className="home-page">
       <div className="home-topbar">
+        <button className="my-trips-btn" onClick={() => navigate('/trips')}>
+          MY TRAVEL PLANS
+        </button>
         <button className="logout-btn" onClick={signOut}>
           SIGN OUT
         </button>
@@ -54,12 +57,27 @@ function Home({ onLogout }) {
       <p className="home-subtitle">Where would you like to go?</p>
 
       <form className="home-search" onSubmit={handleSearch}>
-        <input
-          type="text"
-          placeholder="Search for a country, city, or town"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
+        <div className="search-input-wrap">
+          <svg
+            className="search-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input
+            type="text"
+            placeholder="Search for a country, city, or town"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+        </div>
         <button type="submit">SEARCH</button>
       </form>
 
@@ -85,10 +103,6 @@ function Home({ onLogout }) {
           ))
         )}
       </div>
-
-      <button className="my-trips-btn" onClick={() => navigate('/trips')}>
-        MY TRAVEL PLANS
-      </button>
     </div>
   );
 }

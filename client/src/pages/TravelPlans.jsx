@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { API_BASE } from './apiBase.js';
-import { formatDateRange, validateDates } from './api.js';
+import { formatDateRange, validateDates, logout } from './api.js';
 import Toast from '../components/Toast.jsx';
 import ConfirmDialog from '../components/ConfirmDialog.jsx';
 import './TravelPlans.css';
@@ -28,7 +28,7 @@ function findMatch(destinations, value) {
   return destinations.find((d) => d.name.toLowerCase().includes(q));
 }
 
-function TravelPlans() {
+function TravelPlans({ onLogout }) {
   const [trips, setTrips] = useState([]);
   const [destinations, setDestinations] = useState([]);
   const [activeTab, setActiveTab] = useState('upcoming');
@@ -39,6 +39,15 @@ function TravelPlans() {
   const [deleteTargetId, setDeleteTargetId] = useState(null);
   const [moveTarget, setMoveTarget] = useState(null);
   const navigate = useNavigate();
+
+  function signOut() {
+    logout()
+      .catch((err) => console.log('failed to log out', err))
+      .finally(() => {
+        onLogout();
+        navigate('/login');
+      });
+  }
 
   function loadTrips() {
     fetch(`${API_BASE}/api/trips`)
@@ -191,6 +200,15 @@ function TravelPlans() {
 
   return (
     <div className="plans-page">
+      <div className="plans-topbar">
+        <button className="home-btn" onClick={() => navigate('/')}>
+          HOME
+        </button>
+        <button className="logout-btn" onClick={signOut}>
+          SIGN OUT
+        </button>
+      </div>
+
       <h1 className="plans-header">MY TRAVEL PLANS</h1>
 
       <div className="tab-row">
@@ -345,10 +363,6 @@ function TravelPlans() {
           <p className="no-trips">Nothing here yet.</p>
         )}
       </div>
-
-      <button className="home-btn" onClick={() => navigate('/')}>
-        HOME
-      </button>
 
       <Toast
         show={!!toastMessage}

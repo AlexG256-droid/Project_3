@@ -7,7 +7,8 @@
 
 .home-topbar {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 16px;
 }
 
@@ -33,9 +34,25 @@
   margin-bottom: 44px;
 }
 
-.home-search input {
+.search-input-wrap {
+  position: relative;
   width: 340px;
-  padding: 12px 16px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--sky);
+  pointer-events: none;
+}
+
+.home-search input {
+  width: 100%;
+  padding: 12px 16px 12px 40px;
   border: 1px solid var(--sky);
   border-radius: 24px;
   background: #FFFFFF;
@@ -127,17 +144,19 @@
 }
 
 .my-trips-btn {
-  padding: 12px 28px;
-  border: none;
+  padding: 10px 22px;
+  font-size: 13px;
+  border: 1px solid var(--btn);
   border-radius: 24px;
-  background: var(--btn);
-  color: #FFFFFF;
+  background: #FFFFFF;
+  color: var(--btn);
   font-weight: 600;
   cursor: pointer;
 }
 
 .my-trips-btn:hover {
-  background: var(--navy);
+  background: var(--btn);
+  color: #FFFFFF;
 }
 
 .logout-btn {
