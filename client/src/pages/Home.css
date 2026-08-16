@@ -1,69 +1,157 @@
-import { API_BASE } from './apiBase.js';
-
-export async function request(url, options = {}) {
-  const res = await fetch(`${API_BASE}${url}`, {
-    ...options,
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-      ...options.headers,
-    },
-  });
-  const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(data.message || 'Request failed.');
-  return data;
+.home-page {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 40px 20px;
+  text-align: center;
 }
 
-export async function getCurrentUser() {
-  const data = await request('/api/auth/me');
-  return data.user;
+.home-topbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
 }
 
-export async function register(username, password) {
-  const data = await request('/api/auth/register', {
-    method: 'POST',
-    body: JSON.stringify({ username, password }),
-  });
-  return data.user;
+.home-title {
+  margin-top: 0;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+  color: var(--navy);
+  font-size: 32px;
 }
 
-export async function login(username, password) {
-  const data = await request('/api/auth/login', {
-    method: 'POST',
-    body: JSON.stringify({ username, password }),
-  });
-  return data.user;
+.home-subtitle {
+  color: var(--sky);
+  margin-top: 0;
+  margin-bottom: 28px;
+  font-size: 15px;
 }
 
-export async function logout() {
-  await request('/api/auth/logout', { method: 'POST' });
+.home-search {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 44px;
 }
 
-function toLabel(value) {
-  const [year, month, day] = value.split('-');
-  const date = new Date(Number(year), Number(month) - 1, Number(day));
-  return date.toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  });
+.home-search input {
+  width: 340px;
+  padding: 12px 16px;
+  border: 1px solid var(--sky);
+  border-radius: 24px;
+  background: #FFFFFF;
+  color: var(--navy);
+  font-size: 14px;
+  outline: none;
 }
 
-export function formatDateRange(startDate, endDate) {
-  if (!startDate || !endDate) return '';
-  return `${toLabel(startDate)} - ${toLabel(endDate)}`;
+.home-search input:focus {
+  border-color: var(--btn);
 }
 
-export function validateDates(startDate, endDate) {
-  const newErrors = {};
-  if (!startDate) {
-    newErrors.startDate = 'Arrival date is required.';
-  }
-  if (!endDate) {
-    newErrors.endDate = 'Departure date is required.';
-  }
-  if (startDate && endDate && endDate < startDate) {
-    newErrors.endDate = 'Departure date cannot be before the arrival date.';
-  }
-  return newErrors;
+.home-search button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 24px;
+  background: var(--btn);
+  color: #FFFFFF;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.home-search button:hover {
+  background: var(--navy);
+}
+
+.home-section-title {
+  text-align: left;
+  margin-bottom: 18px;
+  font-size: 18px;
+  color: var(--navy);
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 44px;
+}
+
+.destination-card {
+  text-align: left;
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 2px 10px rgba(35, 57, 91, 0.08);
+}
+
+.destination-thumb {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: var(--bg);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  color: var(--sky);
+}
+
+.destination-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--navy);
+}
+
+.destination-location {
+  font-size: 12px;
+  color: var(--sky);
+  margin-bottom: 10px;
+}
+
+.add-to-plan-btn {
+  padding: 8px 14px;
+  border: 1px solid var(--btn);
+  border-radius: 16px;
+  background: var(--bg);
+  color: var(--btn);
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.add-to-plan-btn:hover {
+  background: var(--btn);
+  color: #FFFFFF;
+}
+
+.my-trips-btn {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 24px;
+  background: var(--btn);
+  color: #FFFFFF;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.my-trips-btn:hover {
+  background: var(--navy);
+}
+
+.logout-btn {
+  padding: 10px 22px;
+  font-size: 13px;
+  border: 1px solid var(--btn);
+  border-radius: 24px;
+  background: #FFFFFF;
+  color: var(--btn);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: var(--btn);
+  color: #FFFFFF;
 }
