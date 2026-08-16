@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { API_BASE } from './apiBase.js';
-<<<<<<< HEAD
-=======
 import { formatDateRange, validateDates } from './api.js';
->>>>>>> c887ff0 (Update)
 import './AddTrip.css';
 
 function findMatch(destinations, value) {
@@ -19,12 +16,9 @@ function AddTrip() {
 
   const [destinations, setDestinations] = useState([]);
   const [name, setName] = useState(initialName);
-<<<<<<< HEAD
   const [dates, setDates] = useState('');
-=======
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
->>>>>>> c887ff0 (Update)
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
   const [errors, setErrors] = useState({});
@@ -41,21 +35,16 @@ function AddTrip() {
       .catch((err) => console.log('failed to load destinations', err));
   }, []);
 
-<<<<<<< HEAD
-=======
   function clearErrors(fields) {
     const next = { ...errors };
     fields.forEach((field) => delete next[field]);
     setErrors(next);
   }
 
->>>>>>> c887ff0 (Update)
   function handleNameChange(value) {
     setName(value);
     const match = findMatch(destinations, value);
     setImage(match ? match.image : '');
-<<<<<<< HEAD
-=======
     clearErrors(['name']);
   }
 
@@ -67,7 +56,6 @@ function AddTrip() {
   function handleEndDateChange(value) {
     setEndDate(value);
     clearErrors(['startDate', 'endDate']);
->>>>>>> c887ff0 (Update)
   }
 
   function validate() {
@@ -78,12 +66,9 @@ function AddTrip() {
     } else if (/^\d+$/.test(trimmedName)) {
       newErrors.name = 'Trip name cannot be just a number.';
     }
-<<<<<<< HEAD
     if (!dates.trim()) newErrors.dates = 'Dates are required.';
     return newErrors;
-=======
     return { ...newErrors, ...validateDates(startDate, endDate) };
->>>>>>> c887ff0 (Update)
   }
 
   async function handleDone() {
@@ -95,9 +80,7 @@ function AddTrip() {
       await fetch(`${API_BASE}/api/trips`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-<<<<<<< HEAD
         body: JSON.stringify({ name, dates, description, image }),
-=======
         body: JSON.stringify({
           name,
           startDate,
@@ -106,7 +89,6 @@ function AddTrip() {
           description,
           image,
         }),
->>>>>>> c887ff0 (Update)
       });
     } catch (err) {
       console.log('failed to save trip', err);
@@ -116,11 +98,8 @@ function AddTrip() {
 
   return (
     <div className="add-trip-page">
-<<<<<<< HEAD
       <div className="add-trip-header">MY TRAVEL PLANS</div>
-=======
       <h1 className="add-trip-header">MY TRAVEL PLANS</h1>
->>>>>>> c887ff0 (Update)
 
       <div className="add-trip-form">
         <label>
@@ -137,13 +116,11 @@ function AddTrip() {
           <img className="name-match-preview" src={image} alt="preview" />
         )}
 
-<<<<<<< HEAD
         <label>
           Dates (to and from)
           <input value={dates} onChange={(e) => setDates(e.target.value)} />
           {errors.dates && <span className="field-error">{errors.dates}</span>}
         </label>
-=======
         <div className="date-row">
           <label>
             Arrival date
@@ -170,7 +147,6 @@ function AddTrip() {
             )}
           </label>
         </div>
->>>>>>> c887ff0 (Update)
 
         <label>
           Description (optional)
